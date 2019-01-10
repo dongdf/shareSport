@@ -17,6 +17,14 @@ Page({
     isTodayWeek: false,
     todayIndex: 0
   },
+  goactive:function(e){
+    console.log(e.currentTarget.dataset.idx);
+    getApp().globalData.ismy = e.currentTarget.dataset.idx
+    wx.navigateTo({
+      url: '../mine/active',
+    })
+
+  },
   bindPhone:function(){
     if (this.data.mine.mobile){
       wx.showModal({
@@ -249,8 +257,8 @@ Page({
       console.log(res.target)
     }
     return {
-      title: '【'+that.data.mine.nickname+'】邀请您用全民运动',
-      path: '/page/home/start',
+      title: '【' + that.data.mine.nickname +'】邀请您报名参赛',
+      path: '/page/home/index',
       imageUrl: '../../image/share.jpg',
       success: function (res) {
         // 转发成功

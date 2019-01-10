@@ -228,7 +228,9 @@ Page({
           wx.showToast({
             title: '签到成功',
           })
+          that.getmeber();
         },error=>{
+          that.getmeber();
           wx.showModal({
             title: '提示',
             showCancel:false,
@@ -347,42 +349,43 @@ Page({
     getApp().globalData.meetId = this.data.meetid
     if (this.data.meetinginfo.open_id  == wx.getStorageSync('ppid')){
       wx.showActionSheet({
-        itemList: ['修改信息','取消活动'],
+        itemList: ['取消活动'],
         success(res) {
           if(res.tapIndex == 0){
             
-            wx.redirectTo({
-              url: '../home/addmeeting',
-            })
-            // wx.showModal({
-            //   title: '确定取消活动吗？',
-            //   content: '取消活动，活动费用会在三个工作日内进行原路返回',
-            //   success: function (res) {
-            //     if (res.confirm) {
-            //       getApp().post('affair/cancelAffair', {
-            //         id: that.data.meetinginfo.id
-            //       }).then(res => {
-            //         wx.showModal({
-            //           title: '提示',
-            //           content: '取消成功',
-            //         })
-            //         that.getoptbtns();
-
-
-
-            //       }, error => {
-            //         wx.showModal({
-            //           title: '提示',
-            //           content: error.info,
-            //         })
-
-            //       })
-            //     } else if (res.cancel) {
-            //       console.log('用户点击取消')
-            //     }
-            //   }
-
+            // wx.redirectTo({
+            //   url: '../home/addmeeting',
             // })
+            wx.showModal({
+              title: '确定取消活动吗？',
+              content: '取消活动，活动费用会在三个工作日内进行原路返回',
+              success: function (res) {
+                if (res.confirm) {
+                  getApp().post('affair/cancelAffair', {
+                    id: that.data.meetinginfo.id
+                  }).then(res => {
+                    wx.showModal({
+                      title: '提示',
+                      content: '取消成功',
+                    })
+                    that.getoptbtns();
+
+
+
+                  }, error => {
+                    wx.showModal({
+                      title: '提示',
+                      content: error.info,
+                    })
+
+                  })
+                } else if (res.cancel) {
+                  console.log('用户点击取消')
+                }
+              }
+
+            })
+            
           } else if (res.tapIndex == 1){
             wx.showModal({
               title: '确定关闭红包？',
@@ -752,9 +755,9 @@ Page({
       console.log(res.target)
     }
     return {
-      title:that.data.meetinginfo.title,
+      title: '【'+that.data.mineinfo.name +"】邀请您报名参赛",//that.data.meetinginfo.title,
       path: '/page/home/detail?mid=' + that.data.meetinginfo.id,
-      imageUrl:'',
+      imageUrl: '../../image/share.jpg',
       success: function (res) {
         // 转发成功
         console.log(res);

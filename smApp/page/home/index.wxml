@@ -34,20 +34,20 @@
 
    <view class='rowp offset_top nopd' >
         <view class='col col-50'>
-          <view  class="sp_mine">
-          <navigator url='../mine/active?tab=1'>
+          <view  class="sp_mine" data-idx="1" bindtap='goactive'>
+          
               <view class='spt1'>{{mymeeting.my}}</view>
              <view class='spt2'>我创建的</view>
-          </navigator>
+           
              
           </view>
         </view>
         <view class='col col-50'>
-          <view  class="sp_mine">
-          <navigator url='../mine/active?tab=2'>
+          <view  class="sp_mine"  data-idx="2" bindtap='goactive' >
+          
              <view class='spt1'>{{mymeeting.other}}</view>
              <view class='spt2'>我报名的</view>
-             </navigator>
+             
           </view>
         </view>
         <view class='cl'></view>
@@ -56,15 +56,16 @@
 
 <view style='min-height:200px'>
   <view   wx:for="{{lists.ing}}" wx:for-index="index" wx:for-item="item">
-    <navigator wx:if="{{index ==0}}" url='../home/detail?mid={{item.id}}'>
+    <navigator url='../home/detail?mid={{item.id}}'>
           <view class='rowp nopd' style='padding-left:15px;padding-right:15px;'>
             <view class='col col-100'>
                 <view class='zhutis'>
                    <label class='dot'></label>{{item.title}}
-                  <label class='fmoneys'>费用{{item.promise_money}}元</label>
+                  <label class=''></label>
                 </view>
-              <view class='time_ss'>{{item.active_time}}</view>
-              <view class='time'>{{item.adr_name}}</view>
+                <view class='time_ss'>费用: {{item.promise_money}}元</view>
+              <view class='time_ss'>时间: {{item.active_time}}</view>
+              <view class='time'>地点: {{item.adr_name}}</view>
               <!-- <view class='time'>{{item.address}}</view> -->
               </view>
             <view class='cl'></view>
@@ -73,20 +74,7 @@
     
 
     
-    <navigator wx:if="{{index>0}}" url='../home/detail?mid={{item.id}}'>
-          <view class='rowp nopd' style='padding-left:15px;padding-right:15px;'>
-            <view class='col col-100'>
-                <view class='zhutis'>
-                  <label class='dot' style='background:#00C676'></label>{{item.title}}
-                   
-                </view>
-                <label class="rightarrow" style='top:3px;'><text>{{item.active_time}}</text><i class="icon iconfont icon-enter"></i></label>
-              <view class='time'>费用{{item.wait_allot_money}}元</view>
-              
-              </view>
-            <view class='cl'></view>
-          </view>
-      </navigator>
+     
     
 
     </view> 

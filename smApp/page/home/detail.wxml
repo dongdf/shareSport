@@ -40,7 +40,7 @@
         <view class='cl'></view>
       </view>
       <view class='time_detail' style='border:none;'>地址
-        <text class='fr' bindtap='openmap' style=' color:#00C676;width:70%;'>{{meetinginfo.address}}</text>
+        <text class='fr' bindtap='openmap' style=' color:#00C676; text-align:right;width:70%;'>{{meetinginfo.address}}</text>
         <view class='cl'></view>
       </view>
     </view>
@@ -283,8 +283,8 @@
 <view class="authuser" wx:if="{{isauth}}">
   <view class='authuer_content'>
     <view class="detailAuth">
-      <view class='authTitle'>全民运动</view>
-      <view class='authmiaoshu'>欢迎使用全民运动,您这这里可以创建活动 或 参加好友的活动，点击马上开始开启运动旅程吧！</view>
+      <view class='authTitle'>中都体育</view>
+      <view class='authmiaoshu'>欢迎使用中都体育,您这这里可以创建活动 或 参加好友的活动，点击马上开始开启运动旅程吧！</view>
 
       <view class='authBtn'>
             <button style="border:none; color:#FFF;" class='' form-type='submit' plain='true' open-type="getUserInfo" bindgetuserinfo='bindGetUserInfo'><image  class='start_icos' style='top:8px;' src='../../image/sport2.png'></image>马上开始</button>

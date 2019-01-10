@@ -57,7 +57,7 @@
         <view class='cl'></view>
       </view>
       <view class='time_detail' style='border:none;'>地址
-        <text class='fr' bindtap='openmap' style=' color:#00C676; width:70%;'>{{meetinginfo.address}}</text>
+        <text class='fr' bindtap='openmap' style=' color:#00C676; width:70%; text-align:right;'>{{meetinginfo.address}}</text>
         <view class='cl'></view>
       </view>
     </view>

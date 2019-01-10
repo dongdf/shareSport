@@ -604,7 +604,7 @@ page {
   font-size:17px;
   padding-right:100px;
   color:#000;
-  padding: 0 0 5px 0;
+  padding: 0 0px 5px 0;
 }
 .zhutis .fmoneys{
   position: absolute;

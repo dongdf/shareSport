@@ -178,6 +178,7 @@ App({
     }
   },
   globalData: {
+    ismy:1,
     allperson:[],
     zfsign:false,
     share: false,  // 分享默认为false

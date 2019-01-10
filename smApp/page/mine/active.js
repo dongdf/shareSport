@@ -18,25 +18,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options.tab ==2){
-      
-      this.setData({
-        active:2,
-        state:false,
-      })
-      this.getalllist(true);
-    }else{
-      
-      this.setData({
-        active: 1,
-        state: false,
-      })
-      this.getalllist(false);
-    }
     
-    wx.setNavigationBarTitle({
-      title: '我的活动',
-    })
 
   },
   getalllist: function () {//0：进行中，1：待关闭，2：活动结束
@@ -110,6 +92,29 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({
+      lists:[]
+    })
+
+    if (getApp().globalData.ismy == 1) {
+
+      this.setData({
+        active: 1,
+        state: true,
+      })
+      this.getalllist(true);
+    } else {
+
+      this.setData({
+        active: 2,
+        state: false,
+      })
+      this.getalllist(false);
+    }
+
+    wx.setNavigationBarTitle({
+      title: '我的活动',
+    })
 
   },
 

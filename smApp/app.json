@@ -23,15 +23,13 @@
     "page/mine/active",
     "page/mine/minekf",
     "page/mine/moneyList",
-    "page/home/start"
-    
-     
+    "page/home/start" 
     
   ],
   "window": {
     "navigationBarBackgroundColor": "#00BC70",
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "全民运动",
+    "navigationBarTitleText": "中都体育",
     "backgroundColor": "#00BC70",
     "backgroundTextStyle": "light"
     
