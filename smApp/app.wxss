@@ -987,3 +987,9 @@ navigator{
   color:#F60;
   text-align: center
 }
+.myactTitle{
+  width:400rpx;
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}

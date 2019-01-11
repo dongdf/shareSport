@@ -15,7 +15,7 @@
                 <navigator url='../home/detail?mid={{item.id}}'>
                       <view class='rowp nopd' style='border:none;'>
                         <view class='col col-100'>
-                            <view class='zhutis'>
+                            <view class='zhutis myactTitle'>
                               {{item.title}}
                               
                             </view>
