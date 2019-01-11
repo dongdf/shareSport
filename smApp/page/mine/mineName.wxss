@@ -1,1 +1,4 @@
 /* page/mine/mineName.wxss */
+page{
+  background: #EEE;
+}

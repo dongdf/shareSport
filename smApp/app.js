@@ -38,31 +38,48 @@ App({
   },
   uploadmedia:function(url,data){
     //http://192.168.1.133:8080/
+    function upload(){
+      // var temp = JSON.stringify(res.data);
+      // if (temp.indexOf('400 Bad Request') >= 0) {
+      //   upload();
+      //   return;
+      // }
+    }
     var promise = new Promise((resolve, reject) => {
-      wx.uploadFile({
-        url: baseUrl+url+'?openid=' + wx.getStorageSync('ppid'),
-        header: {
-          'x-wx-openid': wx.getStorageSync('ppid'),
-          'content-type': 'multipart/form-data'
-        },
-        filePath: data,
-        name: 'file',
-        success: function (res) {//服务器返回数据
-          // console.log(res);
-          var resdata = JSON.parse(res.data);
-          if (resdata.status == 200) {
-            wx.hideLoading();
-            resolve(resdata.data);
-          } else {
-            wx.hideLoading();
-            reject(res.data)
+      upload();
+      function upload(){
+        wx.uploadFile({
+          url: baseUrl + url + '?openid=' + wx.getStorageSync('ppid'),
+          header: {
+            'x-wx-openid': wx.getStorageSync('ppid'),
+            'content-type': 'multipart/form-data'
+          },
+          filePath: data,
+          name: 'file',
+          success: function (res) {//服务器返回数据
+          var temp = JSON.stringify(res.data);
+          if (temp.indexOf('400 Bad Request') >= 0) {
+            upload();
+            return;
           }
-        },
-        error: function (e) {
-          wx.hideLoading();
-          reject('网络出错');
-        }
-      })
+
+            var resdata = JSON.parse(res.data);
+            if (resdata.status == 200) {
+              wx.hideLoading();
+              resolve(resdata.data);
+            } else {
+              wx.hideLoading();
+              reject(res.data)
+            }
+          },
+          error: function (e) {
+            wx.hideLoading();
+            reject('网络出错');
+          }
+        })
+
+      }
+      
       
     })
     return promise;

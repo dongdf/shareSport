@@ -17,6 +17,11 @@ Page({
     isTodayWeek: false,
     todayIndex: 0
   },
+  gomines:function(){
+    wx.navigateTo({
+      url: '../mine/mineInfo',
+    })
+  },
   goactive:function(e){
     console.log(e.currentTarget.dataset.idx);
     getApp().globalData.ismy = e.currentTarget.dataset.idx

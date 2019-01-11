@@ -310,7 +310,11 @@ Page({
               getApp().get('member/changeStatus?id=' + that.data.meetinginfo.id).then(gres => {
 
                 that.getoptbtns();
+                that.getmeeting();
 
+              },error=>{
+                that.getoptbtns();
+                that.getmeeting();
               })
              
               getApp().globalData.meetId = that.data.meetinginfo.id

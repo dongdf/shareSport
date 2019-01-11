@@ -272,6 +272,18 @@ Page({
                   })
                 }, 2000)
 
+              },err=>{
+                wx.showLoading({
+                  title: '请稍候...',
+                })
+                setTimeout(() => {
+                  wx.hideLoading();
+                  getApp().globalData.zfsign = true;
+
+                  wx.redirectTo({
+                    url: '../home/detail?mid=' + adinfo.id + '&yzf=1',
+                  })
+                }, 2000)
               })
              
              

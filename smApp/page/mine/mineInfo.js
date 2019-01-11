@@ -37,16 +37,19 @@ Page({
 
     wx.chooseImage({
       count: 1,
+      sizeType: ['compressed'],
       sourceType:['album', 'camera'],
       success: function (res) {
         wx.showLoading({
           title: '上传中',
         })
         var filePath = res.tempFilePaths[0];
-        // wx.showModal({
-        //   title: '开始上传',
-        //   content: filePath,
-        // })
+        
+
+        
+        
+
+
         getApp().uploadmedia('user/savePhoto', filePath).then(res =>{
           console.log(res);
           that.setData({

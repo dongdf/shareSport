@@ -25,6 +25,7 @@
 </view> -->
  <view class='rcontent' style='margin-top:50px;'>
    <view class='userinfos'>
+        <label class='edit' bindtap='gomines'><i class="icon iconfont icon-setup"></i>设置</label>
         <view class='userinfos_img'><image src='{{mine.avatarurl}}'></image></view>
         <view class='userinfo_name'>{{mine.nickname}}
         <label bindtap='bindPhone' class="{{!mine.mobile?'wxinlineshow':'wxhide'}}"><image class='phoneSign' src='../../image/sport4_0.png'></image></label>
