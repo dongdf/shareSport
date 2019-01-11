@@ -115,10 +115,15 @@ Page({
     //   title: 'formId',
     //   content: e.detail.formId+'',
     // })
+    var editorhtml = e.detail.value.content;
+
+    // editorhtml = editorhtml.replace(/\r\n/g, '\n' ); //IE9、FF、chrome
+    // editorhtml = editorhtml.replace(/\n/g, '\n' ); //IE7-8
+    // editorhtml = editorhtml.replace(/\s/g, ' '); //空格处理
     var pdata={
       formId: e.detail.formId,
       title:e.detail.value.title,
-      content:e.detail.value.content,
+      content: editorhtml,
       promise_money: e.detail.value.promise_money,
       address_Lng: this.data.meeting.address_Lng,//地点经度
       address_Lat: this.data.meeting.address_Lat,//地点纬度
