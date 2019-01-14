@@ -149,7 +149,7 @@
 
   <view class="alljoins">
     <label></label>
-    <text>已参加</text>
+    <text>已参加({{memberlist.length}}人)</text>
     <label></label>
   </view>
 
