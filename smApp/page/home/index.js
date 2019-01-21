@@ -17,6 +17,9 @@ Page({
     isTodayWeek: false,
     todayIndex: 0
   },
+  getweather:function(){
+    getApp().get('https://free-api.heweather.net/s6/weather/now?key=zd_keys&location=116.40,39.9')
+  },
   gomines:function(){
     wx.navigateTo({
       url: '../mine/mineInfo',
@@ -124,6 +127,7 @@ Page({
 
   },
   onLoad: function () {
+    this.getweather();
     
     // this.getalllist(2)
     this.getmineCount()
